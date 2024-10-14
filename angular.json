@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "tutorial1": {
+    "trening": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/tutorial1",
+            "outputPath": "dist/trening",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "tutorial1:build:production"
+              "buildTarget": "trening:build:production"
             },
             "development": {
-              "buildTarget": "tutorial1:build:development"
+              "buildTarget": "trening:build:development"
             }
           },
           "defaultConfiguration": "development"

@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  font-family: "Overpass";
+}
+
+.grid-div {
+    display: grid;
+    place-items: center;
+}
+
+.name {
+  font-family: "Overpass";
+  font-size: 5rem;
+  background: var(--brand-gradient);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0%;
+  padding: 0%;
+  width: 30%;
+  align-items: center;
+}
+
+.textbox {
+  font-family: "Overpass";
+}
