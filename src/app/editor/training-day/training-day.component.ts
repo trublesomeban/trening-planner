@@ -14,7 +14,7 @@ export class TrainingDayComponent {
   #componentRef?: ComponentRef<ExcerciseComponent>
   excersises = [this.createComponent("Pull up", 3, 6)]
   createComponent(name: string, sets: number, reps: number) {
-    this.vcr.createComponent(ExcerciseComponent)
+    this.#componentRef = this.vcr.createComponent(ExcerciseComponent)
     this.#componentRef?.setInput("name", name)
     this.#componentRef?.setInput("sets", sets)
     this.#componentRef?.setInput("reps", reps)
