@@ -21,12 +21,24 @@ export class TrainingDayComponent implements OnInit {
     this.trainingDays = this.excerciseService.getDays();
   }
   addDay(): void {
-    this.excerciseService.addDay()
+    this.excerciseService.addDay();
+    this.trainingDays = this.excerciseService.getDays();
+  };
+  updateDay(day: number, value: string): void {
+    this.excerciseService.updateDay(day, value);
+    this.trainingDays = this.excerciseService.getDays();
+  }
+  addExcercise(day: number): void {
+    this.excerciseService.addExcercise(day);
     this.trainingDays = this.excerciseService.getDays();
   };
   updateExcercise(day: number, excercise: number, id: string, value: string): void {
-    this.excerciseService.updateExcercise(day, excercise, id as ("name" | "sets" | "reps"), value)
-    console.log(this.excerciseService.getDays())
+    this.excerciseService.updateExcercise(day, excercise, id as ("name" | "sets" | "reps"), value);
+    this.trainingDays = this.excerciseService.getDays();
+  }
+  removeExcercise(day: number, excercise: number): void {
+    this.excerciseService.removeExcercise(day, excercise);
+    this.trainingDays = this.excerciseService.getDays();
   }
   getValue(event: Event): string {
     return (event.target as HTMLInputElement).value;

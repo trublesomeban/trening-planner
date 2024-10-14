@@ -1,7 +1,11 @@
 <input type="text" /><br />
 @for (day of trainingDays; track $index; let id = $index;) {
 <div class="training-day">
-  <span class="day-name">{{ day.name }}</span>
+  <input
+    class="day-name"
+    (input)="updateDay(id, getValue($event))"
+    [value]="day.name"
+  />
   <table>
     <tr>
       <th>Excercise</th>
@@ -28,9 +32,16 @@
           [value]="excercise.reps"
         />
       </td>
+      <td><button (click)="removeExcercise(id, ie)">-</button></td>
     </tr>
+
     }
   </table>
+  <div style="display: grid">
+    <button (click)="addExcercise(id)">+ Add excercise</button>
+  </div>
 </div>
 }
-<button (click)="addDay()">Add day</button>
+<div style="display: grid; margin-left: -40%">
+  <button (click)="addDay()">+ Add day</button>
+</div>
