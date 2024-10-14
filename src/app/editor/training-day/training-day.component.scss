@@ -1,8 +1,16 @@
-.excercises {
-    display: flex;
+button {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  align-self: center;
 }
+
+.excercises {
+  display: flex;
+}
+
 .excercise-component {
-  font-size: 1.5rem;
+  font-size: 0.5rem;
   display: flex;
   background-color: var(--off-bg);
   width: fit-content;
@@ -11,11 +19,43 @@
   margin-top: 0.5rem;
   padding: 0.4rem;
 }
+
 .training-day {
-    background-color: white;
+  background-color: var(--off-bg);
+  padding: 0.5rem;
+  margin: 1rem;
+  margin-right: 39.5%;
+}
+
+table {
+  border-collapse: collapse;
+  border: 0.2rem solid white;
+
+  td,
+  th {
+    border: 0.2rem solid white;
+  }
 }
 
 input {
-    font-size: 3rem;
-    font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  color: white;
+  background-color: transparent;
+  margin-left: 0.5rem;
+  border: none;
+}
+.day-name {
+  text-align: left;
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+div {
+  justify-items: center;
 }

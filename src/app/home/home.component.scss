@@ -11,13 +11,14 @@ body {
 
 .name {
   font-family: "Overpass";
-  font-size: 5rem;
+  font-size: 7rem;
   background: var(--brand-gradient);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0%;
   padding: 0%;
-  width: 30%;
+  width: 50%;
+  margin-left: 10%;
   align-items: center;
 }
 

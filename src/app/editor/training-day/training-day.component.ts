@@ -1,6 +1,9 @@
-import { Component, ComponentRef, inject, ViewContainerRef } from '@angular/core';
-import { ExcerciseComponent } from "../excercise/excercise.component";
+import { Component, ComponentRef, inject, OnInit, ViewContainerRef } from '@angular/core';
 import { CommonModule, NgComponentOutlet, NgFor } from '@angular/common';
+import { TrainingDay } from '../../models/trainingDay';
+import { TrainingDayService } from '../../services/trainingDay.service';
+
+
 
 @Component({
   selector: 'editor-training-day',
@@ -9,17 +12,36 @@ import { CommonModule, NgComponentOutlet, NgFor } from '@angular/common';
   templateUrl: './training-day.component.html',
   styleUrl: './training-day.component.scss'
 })
-export class TrainingDayComponent {
-  vcr = inject(ViewContainerRef)
-  #componentRef?: ComponentRef<ExcerciseComponent>
-  excersises = [this.createComponent("Pull up", 3, 6), this.createComponent("OHP", 3, 10), this.createComponent("T-bar row", 3, 12)]
-  createComponent(name: string, sets: number, reps: number) {
-    this.#componentRef = this.vcr.createComponent(ExcerciseComponent)
-    this.#componentRef?.setInput("name", name)
-    this.#componentRef?.setInput("sets", sets)
-    this.#componentRef?.setInput("reps", reps)
+export class TrainingDayComponent implements OnInit {
+  excerciseService = inject(TrainingDayService);
+  trainingDays: TrainingDay[] = [];
+  tDay = 0;
+  tExcercise = 0;
+  ngOnInit(): void {
+    this.trainingDays = this.excerciseService.getDays();
   }
-  destroyComponent() {
-    this.#componentRef?.destroy
+  addDay(): void {
+    this.excerciseService.addDay();
+    this.trainingDays = this.excerciseService.getDays();
+  };
+  updateDay(day: number, value: string): void {
+    this.excerciseService.updateDay(day, value);
+    this.trainingDays = this.excerciseService.getDays();
+  }
+  addExcercise(day: number): void {
+    this.excerciseService.addExcercise(day);
+    this.trainingDays = this.excerciseService.getDays();
+  };
+  updateExcercise(day: number, excercise: number, id: string, value: string): void {
+    this.excerciseService.updateExcercise(day, excercise, id as ("name" | "sets" | "reps"), value);
+    this.trainingDays = this.excerciseService.getDays();
+  }
+  removeExcercise(day: number, excercise: number): void {
+    this.excerciseService.removeExcercise(day, excercise);
+    this.trainingDays = this.excerciseService.getDays();
+  }
+  getValue(event: Event): string {
+    return (event.target as HTMLInputElement).value;
   }
 }
+

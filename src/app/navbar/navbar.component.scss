@@ -13,14 +13,13 @@
   border: none;
   transition: background-color color 0.5s ease;
   padding: 0.5rem;
+  &:hover {
+    background-color: white;
+    color: black;
+  }
 }
 
-.nav-btn:hover {
-  background-color: white;
-  color: black;
-}
-
-.create-btn {
+.nav-btn, .create-btn {
   align-self: left;
   font-size: 2rem;
   background-color: transparent;
