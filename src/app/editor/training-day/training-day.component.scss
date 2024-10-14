@@ -12,10 +12,20 @@
   padding: 0.4rem;
 }
 .training-day {
-    background-color: white;
+    background-color: var(--off-bg);
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+
+    td, th {
+        border: 1px solid black;
+    }
 }
 
 input {
-    font-size: 3rem;
+    font-size: 1rem;
     font-weight: bold;
 }
+

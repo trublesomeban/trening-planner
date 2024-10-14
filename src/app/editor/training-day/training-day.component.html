@@ -1,11 +1,21 @@
 <div class="training-day">
   <input type="text" /><br />
-  <span class="excercise-component">
-    Excercise name<span style="width: 5.955em"></span>| Sets<span
-      style="width: 0.4em; align-content: center"
-    ></span
-    >x Reps |
-  </span>
-  @for(excercise of excersises)
-  <button>Add day</button>
+  @for (day of trainingDays; track $index) {
+  {{ day.name }}
+  <table>
+    <tr>
+      <th>Excercise</th>
+      <th>Sets</th>
+      <th>Reps</th>
+    </tr>
+    @for (excercise of day.excercises; track $index) {
+    <tr>
+      <td><input [value]="excercise.name"></td>
+      <td><input [value]="excercise.sets"></td>
+      <td><input [value]="excercise.reps"></td>
+    </tr>
+    }
+  </table>
+  }
+  <button (click)="addDay()">Add day</button>
 </div>

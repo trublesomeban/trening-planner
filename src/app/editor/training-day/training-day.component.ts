@@ -1,6 +1,9 @@
-import { Component, ComponentRef, inject, ViewContainerRef } from '@angular/core';
-import { ExcerciseComponent } from "../excercise/excercise.component";
+import { Component, ComponentRef, inject, OnInit, ViewContainerRef } from '@angular/core';
 import { CommonModule, NgComponentOutlet, NgFor } from '@angular/common';
+import { TrainingDay } from '../../models/trainingDay';
+import { TrainingDayService } from '../../services/trainingDay.service';
+
+
 
 @Component({
   selector: 'editor-training-day',
@@ -9,13 +12,19 @@ import { CommonModule, NgComponentOutlet, NgFor } from '@angular/common';
   templateUrl: './training-day.component.html',
   styleUrl: './training-day.component.scss'
 })
-export class TrainingDayComponent {
-  vcr = inject(ViewContainerRef)
-  #componentRef?: ComponentRef<ExcerciseComponent>
-  excersises = [this.createComponent("Pull up", 3, 6), this.createComponent("OHP", 3, 10), this.createComponent("T-bar row", 3, 12)]
-  createComponent(name: string, sets: number, reps: number) {
+export class TrainingDayComponent implements OnInit {
+  $index1 = 0
+  excerciseService = inject(TrainingDayService);
+  trainingDays: TrainingDay[] = [];
+  ngOnInit(): void {
+    this.trainingDays = this.excerciseService.getDays();
   }
-  destroyComponent() {
-    this.#componentRef?.destroy
+  addDay(): void {
+    this.excerciseService.addDay()
+    this.trainingDays = this.excerciseService.getDays();
+  }
+  changeExecuted(dayIdx: number, excercisesIdx: number) {
+    return
   }
 }
+
