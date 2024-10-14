@@ -12,7 +12,7 @@ import { CommonModule, NgComponentOutlet, NgFor } from '@angular/common';
 export class TrainingDayComponent {
   vcr = inject(ViewContainerRef)
   #componentRef?: ComponentRef<ExcerciseComponent>
-  excersises = [this.createComponent("Pull up", 3, 6)]
+  excersises = [this.createComponent("Pull up", 3, 6), this.createComponent("OHP", 3, 10), this.createComponent("T-bar row", 3, 12)]
   createComponent(name: string, sets: number, reps: number) {
     this.#componentRef = this.vcr.createComponent(ExcerciseComponent)
     this.#componentRef?.setInput("name", name)

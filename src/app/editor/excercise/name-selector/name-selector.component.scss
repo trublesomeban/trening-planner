@@ -1,0 +1,15 @@
+input {
+  color: white;
+  background-color: transparent;
+  font-size: 1.5rem;
+  max-width: fit-content;
+  justify-self: right;
+  border-radius: 0.2rem;
+  border-width: 0;
+  margin-right: -0.2rem;
+}
+
+input:focus {
+  border: none;
+  outline: none;
+}

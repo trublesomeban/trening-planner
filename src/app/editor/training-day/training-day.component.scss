@@ -1,0 +1,21 @@
+.excercises {
+    display: flex;
+}
+.excercise-component {
+  font-size: 1.5rem;
+  display: flex;
+  background-color: var(--off-bg);
+  width: fit-content;
+  border-radius: 0.2rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0.4rem;
+}
+.training-day {
+    background-color: white;
+}
+
+input {
+    font-size: 3rem;
+    font-weight: bold;
+}

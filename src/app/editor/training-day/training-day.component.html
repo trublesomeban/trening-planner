@@ -1,2 +1,11 @@
-<input type="text">
-<ul *ngFor="let excersise of excersises">{{excersise}}</ul>
+<div class="training-day">
+  <input type="text" /><br />
+  <span class="excercise-component">
+    Excercise name<span style="width: 5.955em"></span>| Sets<span
+      style="width: 0.4em; align-content: center"
+    ></span
+    >x Reps |
+  </span>
+  @for(excercise of excersises)
+  <button>Add day</button>
+</div>
