@@ -13,18 +13,23 @@ import { TrainingDayService } from '../../services/trainingDay.service';
   styleUrl: './training-day.component.scss'
 })
 export class TrainingDayComponent implements OnInit {
-  $index1 = 0
   excerciseService = inject(TrainingDayService);
   trainingDays: TrainingDay[] = [];
+  tDay = 0;
+  tExcercise = 0;
   ngOnInit(): void {
     this.trainingDays = this.excerciseService.getDays();
   }
   addDay(): void {
     this.excerciseService.addDay()
     this.trainingDays = this.excerciseService.getDays();
+  };
+  updateExcercise(day: number, excercise: number, id: string, value: string): void {
+    this.excerciseService.updateExcercise(day, excercise, id as ("name" | "sets" | "reps"), value)
+    console.log(this.excerciseService.getDays())
   }
-  changeExecuted(dayIdx: number, excercisesIdx: number) {
-    return
+  getValue(event: Event): string {
+    return (event.target as HTMLInputElement).value;
   }
 }
 

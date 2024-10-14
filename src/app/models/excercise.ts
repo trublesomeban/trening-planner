@@ -1,5 +1,2 @@
-export type Excercise = {
-    name: string,
-    sets: number,
-    reps: number
-}
+type Keys = "name" | "sets" | "reps";
+export type Excercise = Record<Keys, any>;

@@ -1,21 +1,36 @@
+<input type="text" /><br />
+@for (day of trainingDays; track $index; let id = $index;) {
 <div class="training-day">
-  <input type="text" /><br />
-  @for (day of trainingDays; track $index) {
-  {{ day.name }}
+  <span class="day-name">{{ day.name }}</span>
   <table>
     <tr>
       <th>Excercise</th>
       <th>Sets</th>
       <th>Reps</th>
     </tr>
-    @for (excercise of day.excercises; track $index) {
+    @for (excercise of day.excercises; track $index; let ie = $index;) {
     <tr>
-      <td><input [value]="excercise.name"></td>
-      <td><input [value]="excercise.sets"></td>
-      <td><input [value]="excercise.reps"></td>
+      <td>
+        <input
+          (input)="updateExcercise(id, ie, 'name', getValue($event))"
+          [value]="excercise.name"
+        />
+      </td>
+      <td>
+        <input
+          (input)="updateExcercise(id, ie, 'sets', getValue($event))"
+          [value]="excercise.sets"
+        />
+      </td>
+      <td>
+        <input
+          (input)="updateExcercise(id, ie, 'reps', getValue($event))"
+          [value]="excercise.reps"
+        />
+      </td>
     </tr>
     }
   </table>
-  }
-  <button (click)="addDay()">Add day</button>
 </div>
+}
+<button (click)="addDay()">Add day</button>

@@ -1,8 +1,9 @@
 .excercises {
-    display: flex;
+  display: flex;
 }
+
 .excercise-component {
-  font-size: 1.5rem;
+  font-size: 0.5rem;
   display: flex;
   background-color: var(--off-bg);
   width: fit-content;
@@ -11,21 +12,37 @@
   margin-top: 0.5rem;
   padding: 0.4rem;
 }
+
+.day-name {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
 .training-day {
-    background-color: var(--off-bg);
+  background-color: var(--off-bg);
+  padding: 0.5rem;
+  margin: 1rem;
 }
 
 table {
-    border-collapse: collapse;
-    border: 1px solid black;
+  border-collapse: collapse;
+  border: 0.2rem solid white;
 
-    td, th {
-        border: 1px solid black;
-    }
+  td,
+  th {
+    border: 0.2rem solid white;
+  }
 }
 
 input {
-    font-size: 1rem;
-    font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  color: white;
+  background-color: transparent;
+  margin-left: 0.5rem;
+  border: none;
 }
-
+textarea:focus,
+input:focus {
+  outline: none;
+}
