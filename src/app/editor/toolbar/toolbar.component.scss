@@ -1,0 +1,25 @@
+.editor-toolbar {
+  background-color: var(--off-bg);
+}
+
+.toolbar-btn {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  border-left: solid 0.1rem white;
+  border-right: solid 0.1rem white;
+  margin-right: -0.1rem;
+  color: white;
+  background-color: transparent;
+}
+
+.toolbar-btn:hover {
+  color: black;
+  background-color: white;
+}
+
+button:hover {
+  color: black;
+  background-color: white;
+}

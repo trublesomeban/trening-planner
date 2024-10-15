@@ -1,5 +1,5 @@
-import { Component, ComponentRef, inject, OnInit, ViewContainerRef } from '@angular/core';
-import { CommonModule, NgComponentOutlet, NgFor } from '@angular/common';
+import { Component, inject, OnInit } from '@angular/core';
+import { CommonModule, NgComponentOutlet } from '@angular/common';
 import { TrainingDay } from '../../models/trainingDay';
 import { TrainingDayService } from '../../services/trainingDay.service';
 
@@ -19,26 +19,36 @@ export class TrainingDayComponent implements OnInit {
   tExcercise = 0;
   ngOnInit(): void {
     this.trainingDays = this.excerciseService.getDays();
+    this.excerciseService.updated.subscribe(() => {
+      this.updateDays();
+    })
+  }
+  updateDays(): void {
+    this.trainingDays = this.excerciseService.getDays();
   }
   addDay(): void {
     this.excerciseService.addDay();
-    this.trainingDays = this.excerciseService.getDays();
+    this.updateDays();
   };
   updateDay(day: number, value: string): void {
     this.excerciseService.updateDay(day, value);
-    this.trainingDays = this.excerciseService.getDays();
+    this.updateDays();
   }
   addExcercise(day: number): void {
     this.excerciseService.addExcercise(day);
-    this.trainingDays = this.excerciseService.getDays();
+    this.updateDays();
   };
   updateExcercise(day: number, excercise: number, id: string, value: string): void {
     this.excerciseService.updateExcercise(day, excercise, id as ("name" | "sets" | "reps"), value);
-    this.trainingDays = this.excerciseService.getDays();
+    this.updateDays();
   }
   removeExcercise(day: number, excercise: number): void {
     this.excerciseService.removeExcercise(day, excercise);
-    this.trainingDays = this.excerciseService.getDays();
+    this.updateDays();
+  }
+  removeDay(day: number): void {
+    this.excerciseService.removeDay(day);
+    this.updateDays();
   }
   getValue(event: Event): string {
     return (event.target as HTMLInputElement).value;

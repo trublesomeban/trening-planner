@@ -25,15 +25,14 @@ button {
   padding: 0.5rem;
   margin: 1rem;
   margin-right: 39.5%;
+  border-radius: 0.3rem;
 }
 
 table {
   border-collapse: collapse;
-  border: 0.2rem solid white;
-
   td,
   th {
-    border: 0.2rem solid white;
+    border: 0.15rem solid white;
   }
 }
 
@@ -45,17 +44,42 @@ input {
   margin-left: 0.5rem;
   border: none;
 }
+
 .day-name {
   text-align: left;
   font-size: 2.2rem;
   font-weight: bold;
+  width: fit-content(25%);
 }
 
 textarea:focus,
 input:focus {
   outline: none;
+  text-decoration: underline;
 }
-
 div {
   justify-items: center;
+}
+
+.add-btn {
+  padding: 0.4rem;
+  border-radius: 0.3rem;
+}
+
+.del-btn {
+  margin-top: 0;
+  margin-left: 0.2rem;
+  padding: 0rem;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+  border-radius: 0.3rem;
+}
+
+.del-day-btn {
+  font-size: 1.5rem;
+  margin-top: 0;
+  padding: 0rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  border-radius: 0.3rem;
 }
