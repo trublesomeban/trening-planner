@@ -29,4 +29,8 @@ export class ToolbarComponent {
       }).catch(e => console.log(e))
     }
   }
+  reset() {
+    this.excerciseService.updatePlan([]);
+    this.excerciseService.updated.emit();
+  }
 }
